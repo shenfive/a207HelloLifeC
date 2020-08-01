@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var directionSegment: UISegmentedControl!
     @IBOutlet weak var slider: UISlider!
     
+    @IBOutlet weak var step: UIStepper!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
             default:
                 break
             }
-            
+            print(step.value)
             
         }
     }
