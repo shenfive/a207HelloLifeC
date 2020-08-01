@@ -12,19 +12,20 @@ class ViewController: UIViewController {
 
     var counter = 0.0
     var timer:Timer!
-    var newView:UIView!
+
     
     @IBOutlet weak var counterLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         newView.backgroundColor = UIColor.red
         newView.center = self.view.center
         newView.layer.cornerRadius = 15
         newView.clipsToBounds = true
         newView.alpha = 0.7
+        newView.tag = 999
         self.view.addSubview(newView)
         
     }
@@ -38,7 +39,16 @@ class ViewController: UIViewController {
         let d = counter * ( M_PI / 180 )
         
 //        newView.center = CGPoint.init(x: counter, y: counter)
-        newView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
+//        newView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
+        
+        print("count of view:\(view.subviews.count)")
+        
+        for theView in self.view.subviews{
+            print(theView.tag)
+            if theView.tag == 999{
+                theView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
+            }
+        }
         
         counterLabel.text = "\(counter)"
         counter += 1
@@ -46,12 +56,15 @@ class ViewController: UIViewController {
     
 
     @IBAction func startTimer(_ sender: Any) {
-        newView.isHidden = true
+//        newView.isHidden = true
+   
+        
+        
         timer = Timer.scheduledTimer(timeInterval: (1/60), target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
     }
     
     @IBAction func breakTouchDown(_ sender: Any) {
-        newView.isHidden = false
+//        newView.isHidden = false
     }
     
     
