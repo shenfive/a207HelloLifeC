@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         self.newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         newView.backgroundColor = UIColor.red
         newView.center = self.view.center
+        newView.layer.cornerRadius = 75
+        newView.clipsToBounds = true
         self.view.addSubview(newView)
         
     }
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func startTimer(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 1/60.0, target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: (1/60), target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
     }
     @IBAction func breakTimer(_ sender: Any) {
         timer.invalidate()
