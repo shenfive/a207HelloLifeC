@@ -27,9 +27,21 @@
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-NZ-qJy">
+                                <rect key="frame" x="86" y="190" width="242" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="WPz-w9-2mq"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="1X6-Xt-41o"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fx3-NZ-qJy" firstAttribute="top" secondItem="p0R-IK-gfb" secondAttribute="bottom" constant="36" id="N65-q5-fV7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fx3-NZ-qJy" secondAttribute="trailing" constant="88" id="Ya6-KA-vVB"/>
+                            <constraint firstItem="fx3-NZ-qJy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="88" id="jpv-x8-Qc2"/>
                             <constraint firstItem="p0R-IK-gfb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="saf-Q4-Nfi"/>
                             <constraint firstItem="p0R-IK-gfb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="wMR-wm-NOF"/>
                         </constraints>
@@ -38,6 +50,7 @@
                     <navigationItem key="navigationItem" id="2V4-zU-C3j"/>
                     <connections>
                         <outlet property="directionSegment" destination="p0R-IK-gfb" id="haZ-5b-9NP"/>
+                        <outlet property="slider" destination="fx3-NZ-qJy" id="x6c-sB-fgt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

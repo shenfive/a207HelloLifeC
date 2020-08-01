@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var timer:Timer!
 
     @IBOutlet weak var directionSegment: UISegmentedControl!
+    @IBOutlet weak var slider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +43,9 @@ class ViewController: UIViewController {
 //            counter += 1
             switch  directionSegment.selectedSegmentIndex{
             case 0:
-                counter += 1
+                counter += Double(slider.value)
             case 1:
-                counter -= 1
+                counter -= Double(slider.value)
             default:
                 break
             }
@@ -53,7 +54,10 @@ class ViewController: UIViewController {
         }
     }
     
-
+    @IBAction func sliderValChange(_ sender: Any) {
+        print("slider value:\(slider.value)")
+    }
+    
     
 }
 
