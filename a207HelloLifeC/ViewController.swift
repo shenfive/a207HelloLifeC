@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var counter = 0
+    var counter = 0.0
     var timer:Timer!
     var newView:UIView!
     
@@ -31,14 +31,19 @@ class ViewController: UIViewController {
 
     @objc func timerJob(){
         print(counter)
-        newView.center = CGPoint.init(x: counter, y: counter)
+        
+        let d = counter * ( M_PI / 180 )
+        
+//        newView.center = CGPoint.init(x: counter, y: counter)
+        newView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
+        
         counterLabel.text = "\(counter)"
         counter += 1
     }
     
 
     @IBAction func startTimer(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1/60.0, target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
     }
     @IBAction func breakTimer(_ sender: Any) {
         timer.invalidate()
