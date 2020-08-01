@@ -9,13 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var counter = 0.0
     var timer:Timer!
-
     
-    @IBOutlet weak var counterLabel: UILabel!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,50 +24,26 @@ class ViewController: UIViewController {
         newView.alpha = 0.7
         newView.tag = 999
         self.view.addSubview(newView)
-        
+        timer = Timer.scheduledTimer(timeInterval: (1/60), target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
+
     }
     
     
     
-
+    
     @objc func timerJob(){
         print(counter)
         
         let d = counter * ( M_PI / 180 )
-        
-//        newView.center = CGPoint.init(x: counter, y: counter)
-//        newView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
-        
-        print("count of view:\(view.subviews.count)")
-        
         for theView in self.view.subviews{
             print(theView.tag)
             if theView.tag == 999{
                 theView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
             }
+            counter += 1
         }
-        
-        counterLabel.text = "\(counter)"
-        counter += 1
     }
     
-
-    @IBAction func startTimer(_ sender: Any) {
-//        newView.isHidden = true
-   
-        
-        
-        timer = Timer.scheduledTimer(timeInterval: (1/60), target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
-    }
-    
-    @IBAction func breakTouchDown(_ sender: Any) {
-//        newView.isHidden = false
-    }
-    
-    
-    @IBAction func breakTimer(_ sender: Any) {
-        timer.invalidate()
-    }
     
 }
 
