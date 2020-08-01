@@ -12,9 +12,8 @@ class ViewController: UIViewController {
     
     var counter = 0.0
     var timer:Timer!
-    
-    var d:Bool = true
-    
+
+    @IBOutlet weak var directionSegment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,29 +40,20 @@ class ViewController: UIViewController {
                 theView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
             }
 //            counter += 1
-            switch self.d {
-            case true:
+            switch  directionSegment.selectedSegmentIndex{
+            case 0:
                 counter += 1
-            case false:
+            case 1:
                 counter -= 1
+            default:
+                break
             }
             
             
         }
     }
     
-    @IBAction func segmentAction(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
-        switch sender.selectedSegmentIndex {
-        case 0:
-            self.d = true
-        case 1:
-            self.d = false
-        default:
-            break
-        }
-        
-    }
+
     
 }
 
