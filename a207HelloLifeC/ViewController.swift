@@ -12,13 +12,14 @@ class ViewController: UIViewController {
 
     var counter = 0
     var timer:Timer!
+    var newView:UIView!
     
     @IBOutlet weak var counterLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        self.newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         newView.backgroundColor = UIColor.red
         newView.center = self.view.center
         self.view.addSubview(newView)
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
 
     @objc func timerJob(){
         print(counter)
+        newView.center = CGPoint.init(x: counter, y: counter)
         counterLabel.text = "\(counter)"
         counter += 1
     }
