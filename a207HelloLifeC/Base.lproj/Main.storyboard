@@ -37,6 +37,7 @@
                                 <state key="normal" title="中斷"/>
                                 <connections>
                                     <action selector="breakTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tzh-RI-SQ1"/>
+                                    <action selector="breakTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="xJP-Eb-GgQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOu-37-vYF">

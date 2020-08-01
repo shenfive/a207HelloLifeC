@@ -22,8 +22,9 @@ class ViewController: UIViewController {
         self.newView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         newView.backgroundColor = UIColor.red
         newView.center = self.view.center
-        newView.layer.cornerRadius = 75
+        newView.layer.cornerRadius = 15
         newView.clipsToBounds = true
+        newView.alpha = 0.7
         self.view.addSubview(newView)
         
     }
@@ -45,8 +46,15 @@ class ViewController: UIViewController {
     
 
     @IBAction func startTimer(_ sender: Any) {
+        newView.isHidden = true
         timer = Timer.scheduledTimer(timeInterval: (1/60), target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
     }
+    
+    @IBAction func breakTouchDown(_ sender: Any) {
+        newView.isHidden = false
+    }
+    
+    
     @IBAction func breakTimer(_ sender: Any) {
         timer.invalidate()
     }
