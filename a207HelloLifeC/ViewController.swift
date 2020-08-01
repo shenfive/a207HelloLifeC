@@ -13,21 +13,22 @@ class ViewController: UIViewController {
     var counter = 0
     var timer:Timer!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
-        
-        
-    }
+    @IBOutlet weak var counterLabel: UILabel!
+
 
     @objc func timerJob(){
         print(counter)
+        counterLabel.text = "\(counter)"
         counter += 1
     }
     
 
-
+    @IBAction func startTimer(_ sender: Any) {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerJob), userInfo: nil, repeats: true)
+    }
+    @IBAction func breakTimer(_ sender: Any) {
+        timer.invalidate()
+    }
+    
 }
 
