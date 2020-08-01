@@ -15,56 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ara-FF-ROR">
-                                <rect key="frame" x="80" y="324" width="50" height="30"/>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p0R-IK-gfb">
+                                <rect key="frame" x="141.5" y="124" width="131" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="bTo-tJ-Orp"/>
-                                    <constraint firstAttribute="height" constant="30" id="f5N-M2-rje"/>
+                                    <constraint firstAttribute="width" constant="131" id="cos-3A-feI"/>
+                                    <constraint firstAttribute="height" constant="30" id="m1m-gu-0xQ"/>
                                 </constraints>
-                                <state key="normal" title="開始"/>
+                                <segments>
+                                    <segment title="正轉"/>
+                                    <segment title="反轉"/>
+                                </segments>
                                 <connections>
-                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6G8-nI-LXX"/>
+                                    <action selector="segmentAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="g9E-FH-KT0"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7el-Sw-hHC">
-                                <rect key="frame" x="284" y="324" width="50" height="30"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6AC-77-zav"/>
-                                    <constraint firstAttribute="height" constant="30" id="smu-1R-BRC"/>
-                                </constraints>
-                                <state key="normal" title="中斷"/>
-                                <connections>
-                                    <action selector="breakTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tzh-RI-SQ1"/>
-                                    <action selector="breakTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="xJP-Eb-GgQ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOu-37-vYF">
-                                <rect key="frame" x="202" y="164" width="10.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="DVO-vf-rAc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7el-Sw-hHC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="0y4-t2-du7"/>
-                            <constraint firstItem="zOu-37-vYF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sS-2t-cNh"/>
-                            <constraint firstItem="ara-FF-ROR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="HeB-Dw-B3I"/>
-                            <constraint firstItem="zOu-37-vYF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="YHd-Wd-vhg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7el-Sw-hHC" secondAttribute="trailing" constant="80" id="hR9-PP-Ax8"/>
-                            <constraint firstItem="ara-FF-ROR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="xkg-HM-WKN"/>
+                            <constraint firstItem="p0R-IK-gfb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="saf-Q4-Nfi"/>
+                            <constraint firstItem="p0R-IK-gfb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="wMR-wm-NOF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="2V4-zU-C3j"/>
-                    <connections>
-                        <outlet property="counterLabel" destination="zOu-37-vYF" id="13X-n1-Owd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

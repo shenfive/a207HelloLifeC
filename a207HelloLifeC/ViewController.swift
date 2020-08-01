@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     var counter = 0.0
     var timer:Timer!
     
+    var d:Bool = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,18 +35,35 @@ class ViewController: UIViewController {
     
     
     @objc func timerJob(){
-        print(counter)
-        
-        let d = counter * ( M_PI / 180 )
+        let d = counter * ( Double.pi / 180 )
         for theView in self.view.subviews{
-            print(theView.tag)
             if theView.tag == 999{
                 theView.transform = CGAffineTransform(rotationAngle: CGFloat(d))
             }
-            counter += 1
+//            counter += 1
+            switch self.d {
+            case true:
+                counter += 1
+            case false:
+                counter -= 1
+            }
+            
+            
         }
     }
     
+    @IBAction func segmentAction(_ sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.d = true
+        case 1:
+            self.d = false
+        default:
+            break
+        }
+        
+    }
     
 }
 
